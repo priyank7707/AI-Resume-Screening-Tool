@@ -1,0 +1,327 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+.dashboard{
+    width:100%;
+    max-width:1000px;
+    margin:0 auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.dashboard h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.dashboard h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+label{
+    font-weight:bold;
+    color:#333;
+}
+
+input[type=file]{
+    width:100%;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    resize:none;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
+}
+
+.history-table .delete-btn{
+    width:auto !important;
+    padding:8px 14px;
+    background:#ef4444 !important;
+}
+
+/* ================= RESULT BOX ================= */
+
+.result-box{
+    margin-top:30px;
+    padding:25px;
+    background:#f8fbff;
+    border:1px solid #dbeafe;
+    border-radius:12px;
+}
+
+.result-box h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.result-box h3{
+    color:#111827;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.result-box p{
+    font-size:17px;
+    margin:10px 0;
+}
+
+.result-box ul{
+    margin-left:25px;
+    margin-bottom:15px;
+}
+
+.result-box li{
+    margin:8px 0;
+    font-size:16px;
+}
+
+/* ================= HISTORY ================= */
+
+.history-section{
+    width:100%;
+    margin-top:40px;
+}
+
+.history-title{
+    color:#2563eb;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.history-table{
+    width:100%;
+    min-width:900px;
+    border-collapse:collapse;
+    background:#fff;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.history-table th{
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.history-table td{
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 15px;
+}
+
+.history-table tr:nth-child(even){
+    background:#f9fafb;
+}
+
+.history-table tr:hover{
+    background:#eef4ff;
+}
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+/* Resume Name */
+
+.history-table th:first-child,
+.history-table td:first-child{
+    width: 280px;
+    min-width: 280px;
+    white-space: nowrap;
+}
+
+/* Score */
+.history-table td:nth-child(2),
+.history-table th:nth-child(2) {
+    width: 15%;
+}
+
+/* Date */
+
+.history-table th:last-child,
+.history-table td:last-child{
+    width: 260px;
+    min-width: 260px;
+    white-space: nowrap;
+}
+
+/* Status */
+
+.status-selected{
+    color:green;
+    font-weight:bold;
+}
+
+.status-rejected{
+    color:red;
+    font-weight:bold;
+}
+
+.history-table td:nth-child(3),
+.history-table th:nth-child(3) {
+    width: 20%;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .dashboard{
+        width:98%;
+        padding:20px;
+    }
+
+    .history-table{
+        display:block;
+        overflow-x:auto;
+    }
+
+    .history-table th,
+    .history-table td{
+        font-size:14px;
+    }
+
+}
+
+/* Dashboard Stats */
+
+.stats-container{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin:25px 0;
+}
+
+.stat-card{
+    flex:1;
+    min-width:0;
+    height:140px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:15px 10px;
+    background:#2563eb;
+    color:white;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.stat-card h3{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:10px;
+    line-height:1.3;
+    color:white;
+}
+
+.stat-card h2{
+    font-size:34px;
+    margin:0;
+    color:white;
+}
+
+@media (max-width:768px){
+
+    .stats-container{
+        gap:8px;
+    }
+
+    .stat-card{
+        padding:12px 8px;
+    }
+
+    .stat-card h3{
+        font-size:15px;
+    }
+
+    .stat-card h2{
+        font-size:28px;
+    }
+
+    .stat-icon{
+    font-size:28px;
+    margin-bottom:8px;
+    }
+
+    /* Search Box */
+
+    .search-box{
+    width:100%;
+    padding:12px 15px;
+    margin:15px 0 20px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+    box-sizing:border-box;
+    }
+
+    .search-box:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,.2);
+    }
+
+    /* Delete Button */
+
+    .delete-btn{
+    background:#ef4444 !important;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+
+    width:auto !important;
+    display:inline-block;
+
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+    }
+
+    .delete-btn:hover{
+    background:#dc2626 !important;
+    transform:scale(1.05);
+    }
+}
