@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-function Login({ setIsLoggedIn, onCreateAccount }) {
+function Register({ onBackToLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     if (!email || !password) {
       setError("Please enter your email and password");
       return;
@@ -15,9 +16,10 @@ function Login({ setIsLoggedIn, onCreateAccount }) {
 
     setLoading(true);
     setError("");
+    setMessage("");
 
     try {
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("http://localhost:8000/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -27,10 +29,13 @@ function Login({ setIsLoggedIn, onCreateAccount }) {
 
       const data = await response.json();
 
-      if (data.message === "Login Successful") {
-        setIsLoggedIn(true);
+      if (data.message === "Registration successful") {
+        setMessage("Registration successful");
+        setTimeout(() => {
+          onBackToLogin();
+        }, 1000);
       } else {
-        setError(data.message || "Invalid Email or Password");
+        setError(data.message || "Registration failed");
       }
     } catch (err) {
       setError("Unable to connect to server");
@@ -41,9 +46,9 @@ function Login({ setIsLoggedIn, onCreateAccount }) {
 
   return (
     <div className="login-card">
-      <h1 className="login-title">AI Resume Screening Tool</h1>
+      <h1 className="login-title">Create Account</h1>
 
-      <p>Login to Continue</p>
+      <p>Create your account to continue</p>
 
       <input
         type="email"
@@ -68,20 +73,13 @@ function Login({ setIsLoggedIn, onCreateAccount }) {
         </span>
       </div>
 
-      <div className="login-options">
-        <label className="remember-me">
-          <input type="checkbox" />
-          Remember Me
-        </label>
-      </div>
-
-      <button onClick={handleLogin}>
-        {loading ? "Logging in..." : "Login"}
+      <button onClick={handleRegister}>
+        {loading ? "Creating account..." : "Register"}
       </button>
 
       <button
         type="button"
-        onClick={onCreateAccount}
+        onClick={onBackToLogin}
         style={{
           marginTop: "0.75rem",
           background: "transparent",
@@ -90,12 +88,17 @@ function Login({ setIsLoggedIn, onCreateAccount }) {
           cursor: "pointer"
         }}
       >
-        Create Account
+        Back to Login
       </button>
 
       {error && <p className="login-error">{error}</p>}
+      {message && (
+        <p className="login-error" style={{ color: "#16a34a" }}>
+          {message}
+        </p>
+      )}
     </div>
   );
 }
 
-export default Login;
+export default Register;

@@ -16,7 +16,11 @@ cursor = connection.cursor()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,6 +32,37 @@ def home():
     return {
         "message": "Welcome to AI Resume Screening Tool"
     }
+
+
+@app.post("/login")
+def login(email: str = Form(...), password: str = Form(...)):
+    cursor.execute(
+        "SELECT id FROM users WHERE email = %s AND password = %s",
+        (email, password)
+    )
+    user = cursor.fetchone()
+
+    if user:
+        return {"message": "Login Successful"}
+
+    return {"message": "Invalid Email or Password"}
+
+
+@app.post("/register")
+def register(email: str = Form(...), password: str = Form(...)):
+    cursor.execute("SELECT id FROM users WHERE email = %s", (email,))
+    existing_user = cursor.fetchone()
+
+    if existing_user:
+        return {"message": "Email already registered"}
+
+    cursor.execute(
+        "INSERT INTO users (email, password) VALUES (%s, %s)",
+        (email, password)
+    )
+    connection.commit()
+
+    return {"message": "Registration successful"}
 
 
 @app.post("/analyze")
