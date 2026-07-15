@@ -1,41 +1,38 @@
 # 🤖 AI-Powered Resume Screening Tool
 
-An AI-based Resume Screening Tool developed using **React.js, FastAPI, and MySQL**. This application helps HR professionals analyze resumes by comparing candidate skills with job descriptions and automatically generates a match score.
-
+An AI-powered Resume Screening Tool built using React, FastAPI, and MySQL. The application allows users to register, log in, upload resumes, compare skills with job descriptions, generate screening results, and maintain resume history.
 ---
 
 ## 🚀 Features
 
-- 🔐 Secure Login Authentication
-- 📄 Resume Upload
-- 📝 Job Description Input
-- 🤖 AI-Based Resume Analysis
-- 🎯 Match Score Calculation
-- ✅ Selected / Rejected Prediction
-- 📋 Resume History
-- 🔍 Search Resume
-- 🗑️ Delete Resume Records
-- 💾 MySQL Database Integration
-- 📱 Responsive User Interface
+- User Registration
+- User Login Authentication
+- Resume Upload
+- AI-Based Resume Screening
+- Skill Matching
+- Match Score Generation
+- Candidate Evaluation
+- Resume History Management
+- MySQL Database Integration
 
 ---
 
-## 🛠️ Tech Stack
+## Technologies Used
 
 ### Frontend
 - React.js
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
-- Vite
 
 ### Backend
 - Python
 - FastAPI
-
-### Database
 - MySQL
 
+### Tools
+- Git
+- GitHub
 ---
 
 ## 📂 Project Structure
@@ -45,6 +42,13 @@ AI-Resume-Screening-Tool
 │
 ├── frontend
 │   ├── src
+│   │   ├── components
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Dashboard.jsx
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
 │   ├── public
 │   └── package.json
 │
@@ -58,7 +62,19 @@ AI-Resume-Screening-Tool
 
 ## ▶️ How to Run
 
-### Frontend
+### 1. Start XAMPP
+
+- Start **Apache**
+- Start **MySQL**
+
+### 2. Run Backend
+
+```bash
+cd backend
+uvicorn main:app --reload
+```
+
+### 3. Run Frontend
 
 ```bash
 cd frontend
@@ -66,20 +82,20 @@ npm install
 npm run dev
 ```
 
-### Backend
-
-```bash
-cd backend
-uvicorn main:app --reload
-```
-
 ---
 
 ## 📌 Project Highlights
 
+- User Registration
+- User Login Authentication
 - AI-Based Resume Screening
+- Resume Upload & Analysis
+- Skill Matching with Job Description
+- Match Score Generation
+- Candidate Evaluation
+- Resume History Management
 - FastAPI REST API
-- MySQL Database
+- MySQL Database Integration
 - Modern React Dashboard
 - HR-Friendly Interface
 
